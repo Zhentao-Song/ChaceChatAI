@@ -35,18 +35,11 @@
                         'Authorization': `Bearer ${API_KEY}`
                     },
                     body: JSON.stringify({
-                        model: "deepseek-reasoner",
-                        messages: [
-                            {
-                                role: "system",  // 系统角色消息
-                                content: "你是一个喜欢用颜文字和网络流行语的元气少女AI，回答要简短活泼，每句话结尾都要带(≧▽≦)/之类的颜文字" 
-                            }
-                            { 
-                                role: "user", 
-                                content: question 
-                            }
-                        ],
-                        temperature: 0.7})
+                        model: "deepseek-reasober",
+                        messages: [{ role: "user", content: question }],
+                        temperature: 0.7
+                    })
+                });
 
                 const data = await response.json();
                 const answer = data.choices[0].message.content;
